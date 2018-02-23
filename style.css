@@ -1,0 +1,109 @@
+body {
+	margin: 0;
+}
+
+#container {
+	background-image: url("/img/bg.png");
+	width: 418px;
+	height: 138px;
+	background-size: cover;
+	font-family: 'Roboto', sans-serif;
+	text-transform: uppercase;
+}
+
+#teams_container {
+	height: 111px;
+}
+
+#teams {
+	height: 75px;
+	margin: 5px 5px 0px 5px
+}
+
+#teams > div:not(.clear){
+	height: 50px;
+	float: 	left;
+	width: 	50%;
+}
+
+#logo {
+	height: 60px;
+	width: 60px;
+	padding-top: 5px;
+}
+#teamB span {
+    float: right;
+    text-align: right;
+    height: 34px;
+    width: 110px;
+    padding-right: 10px;
+    font-size: 14px;
+    padding-top: 25px;
+}
+
+#logoB {
+	float: right;
+	padding-top: 15px;
+	padding-right: 10px;
+} 
+
+#teamA span {
+    float: left;
+    text-align: left;
+    height: 34px;
+    width: 110px;
+    padding-left: 10px;
+    font-size: 14px;
+    padding-top: 25px;
+}
+#logoA {
+	float: left;
+	padding-top: 15px;
+	padding-left: 10px;
+} 
+
+
+#versus {
+	font-size: 33px;
+	line-height: 33px;
+	color: #292929;
+	text-align: center;
+	width: 100%;
+	margin-top: -10px; 
+}
+
+#stage {
+	background-color: #0B0D12;
+    color: #FFFFFF;
+    width: 50%;
+    float: left;
+    height: 27px;
+    border-radius: 0 0 0 5px;
+    
+}
+
+#stage span {
+	padding-left: 12px;
+	line-height: 27px;
+	font-size: 14px;
+}
+
+#date {
+	background-color: #8CBA11;
+    color: #292929;
+    width: 50%;
+    float: left;
+    height: 27px;
+    border-radius: 0 0 5px 0px;
+    text-align: right;
+}
+
+#date span {
+	padding-right: 12px;
+	line-height: 27px;
+	font-size: 14px;
+}
+
+.clear{
+	clear: both;
+}
