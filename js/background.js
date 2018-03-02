@@ -1,13 +1,13 @@
-
 var notifPoped = null;
 var notification = null;
 var ajax_call = function() {
 	$.ajax({
 		type: "GET",
-		url: "https://streamapi.majorleaguegaming.com/service/streams/status/mlg892",
+		url: "https://api.twitch.tv/helix/streams?user_login=overwatchcontenders",
+		headers: {'Client-ID': '74r6k01pksoouztdb23pc8483p6uf1'},
 		dataType: 'json',
 		success: function(data){
-			if (data.data.status == 1 && notifPoped != true) {
+			if (data.data.length == 1 && notifPoped != true) {
 				chrome.browserAction.getBadgeText;
 				chrome.browserAction.setBadgeText({text : "LIVE"});
 				chrome.browserAction.getBadgeBackgroundColor;
@@ -20,12 +20,12 @@ var ajax_call = function() {
 				});
 				notification.onclick = function()
 				{
-					var URL = "https://overwatchleague.com/en-us/";
+					var URL = "https://contenders.playoverwatch.com";
 					window.open(URL, '_blank');
 					this.close();
 				}
 			}
-			else if (data.data.status == -1){
+			else if (data.data.length == 0){
 				notifPoped = false;
 				var txt = chrome.browserAction.getBadgeText({}, function(result) { 
 					if (result == "LIVE") {
