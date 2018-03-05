@@ -13,9 +13,9 @@ var ajax_call = function() {
 				chrome.browserAction.getBadgeBackgroundColor;
 				chrome.browserAction.setBadgeBackgroundColor({color: "#2ded2d"});
 				notifPoped = true;
-				notification = new Notification("Cheers love!", {
+				notification = new Notification("Hi there!", {
 					icon: 'img/Stream_img.png',
-					body: "The stream's here ! \n Click on!",
+					body: "Overwatch contenders'stream is now live!\nClick on and have fun!",
 					requireInteraction: true     
 				});
 				notification.onclick = function()
@@ -41,5 +41,5 @@ var ajax_call = function() {
 		}
 	});
 };
-var interval = 1000 * 60 * 1;
+var interval = 1000 * 60 * 0.1;
 setInterval(ajax_call, interval);

@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Overwatch Contenders Reminder",
-	"description": "Be informed of the date of the next match and notify when the stream starts.",
+	"description": "Be informed of the date of the next Overwatch Contenders match and notify when the stream starts.",
 	"version": "1.0.0",
 	"permissions": [
 		"http://*/*",
