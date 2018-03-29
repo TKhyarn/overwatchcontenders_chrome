@@ -53,6 +53,17 @@
 			}
 			var MatchDate = dateFormat(myData_current['startDate'], "dd mmm yy h:MM TT");
 		}
+		const req2 = new XMLHttpRequest();
+			req2.open('GET', 'https://api.twitch.tv/helix/streams?user_login=overwatchcontenders', false);
+			req2.setRequestHeader('Client-ID', '74r6k01pksoouztdb23pc8483p6uf1');
+			req2.send(null);
+			if (req2.status === 200 && JSON.parse(req2.responseText).data.length == 1) {
+				$("#stage span").html('<a href="https://contenders.playoverwatch.com/en-us/" target="_blank">'+currentStage+Region+'</a>');
+			}
+			else
+			{
+				$("#stage span").html(currentStage+Region);
+			}
 
 	}
 	else {
@@ -65,7 +76,6 @@
 		var MatchDate = "See you soon";
 	}
 
-	$("#stage span").html(currentStage+Region);
 	$("#date span").html(MatchDate);
 
 	if (error == 1) {

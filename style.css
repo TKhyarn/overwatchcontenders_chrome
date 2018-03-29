@@ -2,6 +2,9 @@ body {
 	margin: 0;
 }
 
+a {
+	color:#FFFFFF;
+}
 #container {
 	background-image: url("/img/bg.png");
 	width: 418px;
