@@ -41,5 +41,5 @@ var ajax_call = function() {
 		}
 	});
 };
-var interval = 1000 * 60 * 0.1;
+var interval = 1000 * 60 * 1;
 setInterval(ajax_call, interval);
