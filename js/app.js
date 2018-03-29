@@ -35,7 +35,7 @@
 			if (logo2 == null) {
 				logo2 = '../img/logo404.png';
 			}
-			var Region = null;
+			var Region = "";
 			const req2 = new XMLHttpRequest();
 			req2.open('GET', 'https://overwatch-contenders-api-prod.playoverwatch.com/teams?expand=team.content&locale=en-us', false);
 			req2.send(null);
@@ -45,7 +45,7 @@
 				loop2:
 				for (var y = 0; y < nbTeams; y++) {
 					if (myTeams[y]['competitor']['name'] === Team1 || myTeams[y]['competitor']['name'] === Team2) {
-						Region = myTeams[y]['competitor']['region'];
+						Region = " ("+myTeams[y]['competitor']['region']+")";
 						break loop2;
 					}
 				}
@@ -65,7 +65,7 @@
 		var MatchDate = "See you soon";
 	}
 
-	$("#stage span").html(currentStage+" ("+Region+")");
+	$("#stage span").html(currentStage+Region);
 	$("#date span").html(MatchDate);
 
 	if (error == 1) {
