@@ -1,3 +1,4 @@
+	var currentStage2 = "";
 	const req = new XMLHttpRequest();
 	req.open('GET', 'https://overwatch-contenders-api-prod.playoverwatch.com/schedule', false);
 	req.send(null);
@@ -5,7 +6,8 @@
 		var myData = JSON.parse(req.responseText);
 		var myData_nbStages = Object.keys(myData['data']['stages']).length;
 		var myData_nbMatches = 0;
-		var today = new Date();
+		var todayMinusTwoHours = new Date();
+		todayMinusTwoHours.setHours(todayMinusTwoHours.getHours() - 2);
 		var currentStage = null;
 		var myData_current = null;
 		var next_match = false;
@@ -16,7 +18,7 @@
 			loop2:
 			for (var y = 0; y < myData_nbMatches; y++) {
 				myData_current = myData['data']['stages'][i]['matches'][y];
-				if (new Date(myData_current['startDate']) > today && myData_current['competitors'][0] != null) {
+				if (new Date(myData_current['startDate']) > todayMinusTwoHours && myData_current['competitors'][0] != null) {
 					next_match = true;
 					break loop1;
 				}
@@ -33,9 +35,25 @@
 			if (logo2 == null) {
 				logo2 = '../img/logo404.png';
 			}
+			var Region = null;
+			const req2 = new XMLHttpRequest();
+			req2.open('GET', 'https://overwatch-contenders-api-prod.playoverwatch.com/teams?expand=team.content&locale=en-us', false);
+			req2.send(null);
+			if (req2.status === 200) {
+				var myTeams = JSON.parse(req2.responseText).competitors;
+				var nbTeams = Object.keys(myTeams).length;
+				loop2:
+				for (var y = 0; y < nbTeams; y++) {
+					if (myTeams[y]['competitor']['name'] === Team1 || myTeams[y]['competitor']['name'] === Team2) {
+						Region = myTeams[y]['competitor']['region'];
+						break loop2;
+					}
+				}
+
+			}
 			var MatchDate = dateFormat(myData_current['startDate'], "dd mmm yy h:MM TT");
 		}
-		
+
 	}
 	else {
 		var error = 1;
@@ -47,7 +65,7 @@
 		var MatchDate = "See you soon";
 	}
 
-	$("#stage span").html(currentStage);
+	$("#stage span").html(currentStage+" ("+Region+")");
 	$("#date span").html(MatchDate);
 
 	if (error == 1) {
