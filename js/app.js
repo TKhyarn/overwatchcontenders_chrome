@@ -1,6 +1,6 @@
 	var currentStage2 = "";
 	const req = new XMLHttpRequest();
-	req.open('GET', 'https://overwatch-contenders-api-prod.playoverwatch.com/schedule', false);
+	req.open('GET', 'https://overwatch-contenders-api-prod.playoverwatch.com/schedule?season=2018S2', false);
 	req.send(null);
 	if (req.status === 200) {
 		var myData = JSON.parse(req.responseText);
