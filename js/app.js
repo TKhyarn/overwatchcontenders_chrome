@@ -1,6 +1,6 @@
-	var currentStage2 = "";
 	const req = new XMLHttpRequest();
 	req.open('GET', 'https://overwatch-contenders-api-prod.playoverwatch.com/schedule?season=2018S2', false);
+	req.open('GET', 'https://overwatch-contenders-api-prod.playoverwatch.com/schedule?season=2018S3', false);
 	req.send(null);
 	if (req.status === 200) {
 		var myData = JSON.parse(req.responseText);
@@ -66,7 +66,7 @@
 			}
 
 	}
-	else {
+	if (next_match == false) {
 		var error = 1;
 		var Team1 = "I'm sorry but";
 		var Team2 = "No match has been found";
@@ -74,6 +74,7 @@
 		var logo2 = "";
 		var currentStage = "Season off";
 		var MatchDate = "See you soon";
+		$("#stage span").html(currentStage);
 	}
 
 	$("#date span").html(MatchDate);
